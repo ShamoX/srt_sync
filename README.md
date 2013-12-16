@@ -24,6 +24,7 @@ Usage
 
 The script will update all the time inserted in the subtitles (srt) file
 regarding a simple linear function defined with :
+
 	new_time = (a . old_time) + b
 
 So you can set the 'a' parameter with --a command line option wich takes a float
@@ -39,10 +40,12 @@ it will edit.
 
 To re-sync for a 24 fps video, subtitles set for 25 fps video, use a = 24/25 =
 0.96 :
+
 	srt_sync.ml --a 0.96
 
 To re-sync for a 30 fps video, subtitles set for a 25 fps video, use a = 30/25
 = 1.2:
+
 	srt_sync.ml --a 1.2
 
-As an advise, first set a 'a' parameter, then the 'b'.
+As an advise, first set the 'a' parameter, then the 'b'.
