@@ -1,5 +1,12 @@
 #!/usr/bin/env ocaml str.cma
 
+(* Version declaration *)
+let version = "0.1.0";;
+let showVersion () =
+  print_endline ("Current version of srt_sync : " ^ version);
+  exit 0
+;;
+
 (** Dealing with arguments **)
 (* Declaring variables *)
 let a = ref 1.0
@@ -11,7 +18,9 @@ and is_unix = ref false
 let parsing_list = [
   ("--a", Arg.Set_float(a), "'a' parameter to resync");
 	("--b", Arg.Set_float(b), "'b' parameter to resync");
-	("--unix", Arg.Set(is_unix), "use this if input file is a unix one")
+  ("--unix", Arg.Set(is_unix), "use this if input file is a unix one");
+	("-v", Arg.Unit(showVersion), "display current version : " ^ version);
+	("--version", Arg.Unit(showVersion), "display current version : " ^ version);
 ];;
 
 Arg.parse parsing_list (fun s -> files := !files @ [s]) "Resyncing all the times of the srt file with t' = a.t + b"
